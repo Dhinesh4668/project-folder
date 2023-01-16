@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      table,
+      td {
+        border: 1px solid red;
+        margin: 10px;
+        /* display: flex; */
+        /* flex-direction: column; */
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>search bar</h1>
+      <input
+        type="text"
+        id="myInput"
+        onkeyup="myFunction()"
+        placeholder="Search for names.."
+        title="Type in a name"
+      />
+      <!-- table -->
+
+      <table id="myTable">
+        <tr>
+          <td>dhinesh</td>
+        </tr>
+        <tr>
+          <td>kumar</td>
+        </tr>
+        <tr>
+          <td>moorthy</td>
+        </tr>
+        <tr>
+          <td>saran</td>
+        </tr>
+        <tr>
+          <td>algojaxon</td>
+        </tr>
+        <tr>
+          <td>internship</td>
+        </tr>
+        <tr>
+          <td>contact</td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+
+<script>
+  function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("td");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
